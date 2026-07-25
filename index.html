@@ -70,7 +70,7 @@
       <div style="position:relative; justify-self:center;">
         <div style="position:absolute; inset:-18px; background:var(--color-accent-2-200); border-radius:62% 38% 46% 54% / 55% 48% 52% 45%; z-index:0;"></div>
         <div class="washed" style="position:relative; z-index:1; width:min(380px, 78vw); aspect-ratio:4/5; overflow:hidden; border-radius:58% 42% 52% 48% / 48% 55% 45% 52%; box-shadow:var(--shadow-lg);">
-          <img src="https://ui-avatars.com/api/?name=Imam+Shukurat&background=f5ead8&color=c67139&size=512&rounded=false" alt="Imam Shukurat portrait" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/hero.jpg" alt="Imam Shukurat portrait" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div style="position:absolute; z-index:2; bottom:-14px; left:-18px; background:var(--color-surface); border-radius:999px; padding:10px 18px; box-shadow:var(--shadow-md); display:flex; align-items:center; gap:8px; font-size:13px;">
           <span style="width:9px; height:9px; border-radius:50%; background:var(--color-accent-2);"></span>
@@ -96,14 +96,14 @@
     <div style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:var(--space-8); align-items:center;">
       <div style="position:relative;">
         <div class="washed" style="width:100%; aspect-ratio:1/1; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
-          <img src="https://ui-avatars.com/api/?name=Imam+Shukurat&background=e4ebd4&color=7a8a5e&size=512&rounded=false" alt="Imam Shukurat lifestyle" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/about.png" alt="Imam Shukurat lifestyle" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div style="position:absolute; top:-16px; right:-16px; width:84px; height:84px; border-radius:50%; background:var(--color-accent); color:var(--color-bg); display:grid; place-items:center; text-align:center; font-family:var(--font-heading); font-size:13px; line-height:1.1; box-shadow:var(--shadow-md); animation:floaty 6s ease-in-out infinite;">real,<br>not scripted</div>
       </div>
       <div>
         <h6 style="color:var(--color-accent);">About me</h6>
         <h2 style="font-size:clamp(30px,3.6vw,44px); max-width:18ch; margin-top:var(--space-2);">The face, hands and voice your product deserves.</h2>
-        <p style="font-size:17px; margin-top:var(--space-4); color:color-mix(in srgb, var(--color-text) 82%, transparent); max-width:56ch;">I'm Hayah, a Nigerian UGC creator helping beauty, skincare, motherhood, lifestyle, and tech brands create authentic, high-quality content that builds trust and drives engagement.</p>
+        <p style="font-size:17px; margin-top:var(--space-4); color:color-mix(in srgb, var(--color-text) 82%, transparent); max-width:56ch;">I'm Hayah, a UGC creator helping beauty, skincare, motherhood, lifestyle, and tech brands create authentic, high-quality content that builds trust and drives engagement.</p>
         <p style="font-size:17px; color:color-mix(in srgb, var(--color-text) 82%, transparent); max-width:56ch;">I blend cinematic visuals with natural storytelling to produce content that feels genuine, connects with audiences, and supports both organic and paid marketing goals. Every piece is created with intention, creativity, and your brand's unique voice in mind.</p>
 
         <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin-top:var(--space-6);">
@@ -226,8 +226,7 @@
   <!-- BRANDS -->
   <section id="brands" style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6); scroll-margin-top:80px;">
     <div style="text-align:center; margin-bottom:var(--space-6);">
-      <h6 style="color:var(--color-accent);">Trusted by</h6>
-      <h2 style="font-size:clamp(28px,3.4vw,40px); margin-top:var(--space-2);">Brands I've created for</h2>
+      <h2 style="font-size:clamp(40px,5vw,56px); margin-top:0; color:var(--color-accent); font-family:var(--font-heading);">Trusted by</h2>
     </div>
     <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--space-3);">
       <sc-for list="{{ brands }}" as="brand" hint-placeholder-count="8">
@@ -332,12 +331,12 @@ class Component extends DCLogic {
   state = { sent: false };
   renderVals() {
     const samples = [
-      { slotId: "work-1", title: "Frankly PDRN Ball Serum", format: "Product review · Reel", caption: "A deep dive into the Frankly PDRN Ball Serum, highlighting its unique texture and glowing skin results.", instagramUrl: "https://www.instagram.com/reel/DbMHIdqsBGv/", thumbnail: "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/753546107_18109414417993882_8498374383280717564_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&_nc_ohc=RCLsaDuLMUcQ7kNvwE6Ysh4&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&oh=00_AQDov07QJXXPSx3thp1lDtbstxeLHK7DIgmlRreOVx9eXw&oe=6A6AA002" },
-      { slotId: "work-2", title: "Inspiral Events BTS", format: "Behind-the-scenes · Reel", caption: "Showcasing the meticulous behind-the-scenes preparation that makes every Inspiral event unforgettable.", instagramUrl: "https://www.instagram.com/reel/Da-2qgSM3eN/", thumbnail: "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/752347400_18108538795993882_5206453956778203120_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&_nc_ohc=hO9FIKmg1pAQ7kNvwGocZlZ&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&oh=00_AQBKqAnK63jkjuqBL-xiRIrrmo2PYg0AZbnaB_WpmSj5Kw&oe=6A6A9B55" },
-      { slotId: "work-3", title: "Nutzy Peanut Butter", format: "Vlog style · Reel", caption: "Authentic, raw storytelling for Nutzy Peanut Butter that builds real connection with the audience.", instagramUrl: "https://www.instagram.com/reel/DavTA78sE7E/", thumbnail: "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/746947937_18107500312993882_1699821394385015281_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&_nc_ohc=mNb66x2AMf4Q7kNvwGq8SCv&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&oh=00_AQCRyvCK2IyLSlYrcUNTb_6P4nEwFsgVqKHrDo03vxeDlg&oe=6A6AAD6D" },
-      { slotId: "work-4", title: "Nineless Suncream Review", format: "Product demo · Reel", caption: "An honest, educational breakdown of Nineless Suncream's benefits for hyperpigmentation and daily protection.", instagramUrl: "https://www.instagram.com/reel/DaLWm1esgjx/", thumbnail: "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/728907624_1373009261349753_3089781700106782340_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&_nc_ohc=LAq_6YpmYuoQ7kNvwH-Dc_O&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&oh=00_AQBMGTmu7Darv1MGPXGBygmFgGlrDyamY_xvlqa5aqdd4g&oe=6A6AA0CD" },
-      { slotId: "work-5", title: "Chowdeck UGC Video", format: "UGC ad · Reel", caption: "A relatable, lifestyle-driven ad demonstrating how Chowdeck saves the day during stressful moving moments.", instagramUrl: "https://www.instagram.com/reel/DZ0dHwHsSTb/", thumbnail: "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/726978656_18103450186993882_5364938171940409283_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&_nc_ohc=xuz7f3d6bVoQ7kNvwE28VnN&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&oh=00_AQBj1R5ojVECU4kWDiuWMSLcaFK42Xkk6WnRm7rvTgw4cg&oe=6A6AB336" },
-      { slotId: "work-6", title: "Vaseline — Love Language", format: "Brand collaboration · Reel", caption: "A heartwarming narrative campaign exploring love languages, beautifully integrated with Vaseline.", instagramUrl: "https://www.instagram.com/reel/DZcsNHxsLHF/", thumbnail: "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/722953387_3500299043451156_5946664274807085563_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&_nc_ohc=7TWWyqRQ0zQQ7kNvwFzybUr&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&oh=00_AQDnUJ53tR6VloY1PHKHYTjdBymxviifJftZGXYBTy5ztw&oe=6A6AB3DA" },
+      { slotId: "work-1", title: "Frankly PDRN Ball Serum", format: "Product review · Reel", caption: "A deep dive into the Frankly PDRN Ball Serum, highlighting its unique texture and glowing skin results.", instagramUrl: "https://www.instagram.com/reel/DbMHIdqsBGv/", thumbnail: "assets/thumb1.jpg" },
+      { slotId: "work-2", title: "Inspiral Events BTS", format: "Behind-the-scenes · Reel", caption: "Showcasing the meticulous behind-the-scenes preparation that makes every Inspiral event unforgettable.", instagramUrl: "https://www.instagram.com/reel/Da-2qgSM3eN/", thumbnail: "assets/thumb2.jpg" },
+      { slotId: "work-3", title: "Nutzy Peanut Butter", format: "Vlog style · Reel", caption: "Authentic, raw storytelling for Nutzy Peanut Butter that builds real connection with the audience.", instagramUrl: "https://www.instagram.com/reel/DavTA78sE7E/", thumbnail: "assets/thumb3.jpg" },
+      { slotId: "work-4", title: "Nineless Suncream Review", format: "Product demo · Reel", caption: "An honest, educational breakdown of Nineless Suncream's benefits for hyperpigmentation and daily protection.", instagramUrl: "https://www.instagram.com/reel/DaLWm1esgjx/", thumbnail: "assets/thumb4.jpg" },
+      { slotId: "work-5", title: "Chowdeck UGC Video", format: "UGC ad · Reel", caption: "A relatable, lifestyle-driven ad demonstrating how Chowdeck saves the day during stressful moving moments.", instagramUrl: "https://www.instagram.com/reel/DZ0dHwHsSTb/", thumbnail: "assets/thumb5.jpg" },
+      { slotId: "work-6", title: "Vaseline — Love Language", format: "Brand collaboration · Reel", caption: "A heartwarming narrative campaign exploring love languages, beautifully integrated with Vaseline.", instagramUrl: "https://www.instagram.com/reel/DZcsNHxsLHF/", thumbnail: "assets/thumb6.jpg" },
     ];
     const brands = [
       { name: "Vaseline", slotId: "brand-1", logo: "https://www.google.com/s2/favicons?domain=vaseline.com&sz=128" },
