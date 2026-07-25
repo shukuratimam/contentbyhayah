@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="ds-styles.css">
+  <script src="./image-slot.js"></script>
+  <script src="./video-slot.js"></script>
+  <script src="./logo-slot.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  </style>
+</helmet>
+
+<div style="min-height:100%; background:var(--color-bg); overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky; top:0; z-index:20; background:var(--color-bg); box-shadow:0 1px 0 var(--color-divider);">
+    <nav class="nav" style="max-width:1180px; margin:0 auto; padding-inline:var(--space-6);">
+      <a class="nav-brand" href="#top" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--color-text);">
+        <span style="display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--color-accent); color:var(--color-bg); font-size:16px;">h</span>
+        contentbyhayah
+      </a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#brands">Brands</a>
+      <a class="btn btn-primary" href="#contact" style="text-decoration:none;">Work with me</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6) var(--space-6); scroll-margin-top:80px;">
+    <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:var(--space-8); align-items:center;">
+      <div>
+        <span class="tag tag-accent" style="margin-bottom:var(--space-3);">UGC Creator · Beauty · Tech · Lifestyle</span>
+        <h1 style="font-size:clamp(40px, 5.2vw, 68px); line-height:1.04; margin-top:var(--space-3); max-width:14ch;">
+          Content that feels like a friend's&nbsp;recommendation.
+        </h1>
+        <p style="font-size:19px; max-width:46ch; margin-top:var(--space-4); color:color-mix(in srgb, var(--color-text) 80%, transparent);">I'm Imam Shukurat — a UGC creator crafting warm, storytelling short-form video and photography that helps brands sell without sounding salesy.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-6);">
+          <a class="btn btn-primary" href="#contact" style="text-decoration:none; padding:14px 26px; font-size:15px;">Work with me
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+          <a class="btn btn-secondary" href="#work" style="text-decoration:none; padding:14px 26px; font-size:15px;">See my work</a>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:var(--space-6); margin-top:var(--space-8);">
+          <div>
+            <div style="font-family:var(--font-heading); font-size:34px; color:var(--color-accent);">1+ yrs</div>
+            <div class="text-muted" style="font-size:13px;">creating for brands</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-heading); font-size:34px; color:var(--color-accent);">48hr</div>
+            <div class="text-muted" style="font-size:13px;">average turnaround</div>
+          </div>
+          <div>
+            
+            
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative; justify-self:center;">
+        <div style="position:absolute; inset:-18px; background:var(--color-accent-2-200); border-radius:62% 38% 46% 54% / 55% 48% 52% 45%; z-index:0;"></div>
+        <div class="washed" style="position:relative; z-index:1; width:min(380px, 78vw); aspect-ratio:4/5; overflow:hidden; border-radius:58% 42% 52% 48% / 48% 55% 45% 52%; box-shadow:var(--shadow-lg);">
+          <x-import component-from-global-scope="image-slot" id="hero-portrait" shape="rect" fit="cover" placeholder="Drop your portrait" style="width:100%; height:100%;" hint-size="100%,100%"></x-import>
+        </div>
+        <div style="position:absolute; z-index:2; bottom:-14px; left:-18px; background:var(--color-surface); border-radius:999px; padding:10px 18px; box-shadow:var(--shadow-md); display:flex; align-items:center; gap:8px; font-size:13px;">
+          <span style="width:9px; height:9px; border-radius:50%; background:var(--color-accent-2);"></span>
+          Available for collabs
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE / NICHES -->
+  <section style="border-block:1px solid var(--color-divider); margin-top:var(--space-4);">
+    <div style="max-width:1180px; margin:0 auto; padding:var(--space-4) var(--space-6); display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-3); font-size:14px;">
+      <span class="text-muted" style="margin-right:var(--space-2);">I create for</span>
+      <span class="tag tag-accent">Beauty &amp; Skincare</span>
+      <span class="tag tag-accent-2">Tech &amp; Gadgets</span>
+      <span class="tag tag-neutral">Home &amp; Lifestyle</span>
+      <span style="margin-left:auto;" class="text-muted">Short-form · Photography · Unboxings · Voiceover · Flatlays</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6); scroll-margin-top:80px;">
+    <div style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:var(--space-8); align-items:start;">
+      <div style="position:relative;">
+        <div class="washed" style="width:100%; aspect-ratio:1/1; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
+          <x-import component-from-global-scope="image-slot" id="about-photo" shape="rect" fit="cover" placeholder="Drop a lifestyle photo" style="width:100%; height:100%;" hint-size="100%,100%"></x-import>
+        </div>
+        <div style="position:absolute; top:-16px; right:-16px; width:84px; height:84px; border-radius:50%; background:var(--color-accent); color:var(--color-bg); display:grid; place-items:center; text-align:center; font-family:var(--font-heading); font-size:13px; line-height:1.1; box-shadow:var(--shadow-md); animation:floaty 6s ease-in-out infinite;">real,<br>not scripted</div>
+      </div>
+      <div>
+        <h6 style="color:var(--color-accent);">About me</h6>
+        <h2 style="font-size:clamp(30px,3.6vw,44px); max-width:18ch; margin-top:var(--space-2);">The face, hands and voice your product deserves.</h2>
+        <p style="font-size:17px; margin-top:var(--space-4); color:color-mix(in srgb, var(--color-text) 82%, transparent); max-width:56ch;">Hi, I'm Hayah, a ugc creator who fell in love with telling honest product stories. I test everything I feature, so the review lands as a recommendation, not an ad. Brands come to me when they want content that's warm, relatable and genuinely converts.</p>
+        <p style="font-size:17px; color:color-mix(in srgb, var(--color-text) 82%, transparent); max-width:56ch;">From first-impression unboxings to polished talking-head reviews, I handle the whole thing from concept, filming, editing and delivery ready to post or run as an ad.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin-top:var(--space-6);">
+          <div class="card" style="gap:6px;">
+            <div class="card-kicker">What I make</div>
+            <div class="card-title">Short-form video</div>
+            <p class="card-body">TikToks &amp; Reels built for the algorithm and the hook.</p>
+          </div>
+          <div class="card" style="gap:6px;">
+            <div class="card-kicker">What I make</div>
+            <div class="card-title">Product photography</div>
+            <p class="card-body">Clean product shots &amp; lifestyle flatlays for feed and PDP.</p>
+          </div>
+          <div class="card" style="gap:6px;">
+            <div class="card-kicker">What I make</div>
+            <div class="card-title">Unboxing &amp; demos</div>
+            <p class="card-body">First impressions that build trust in the first three seconds.</p>
+          </div>
+          <div class="card" style="gap:6px;">
+            <div class="card-kicker">What I make</div>
+            <div class="card-title">Voiceover reviews</div>
+            <p class="card-body">Warm talking-head and VO edits that sound like a friend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" style="scroll-margin-top:80px; background:var(--color-surface);">
+    <div style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6);">
+      <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:var(--space-3); margin-bottom:var(--space-6);">
+        <div>
+          <h6 style="color:var(--color-accent);">Services</h6>
+          <h2 style="font-size:clamp(30px,3.6vw,44px); max-width:16ch; margin-top:var(--space-2);">Everything I can make for your brand.</h2>
+        </div>
+        <p class="text-muted" style="max-width:36ch; font-size:15px;">From a single hero video to a full monthly content engine — mix and match what you need.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:var(--space-4); align-items:start;">
+
+        <!-- Deliverables -->
+        <div class="card" style="padding:var(--space-6); gap:var(--space-4);">
+          <div class="card-kicker">Content &amp; deliverables</div>
+          <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--space-2) var(--space-6);">
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>UGC content</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Paid media ads (15–60 sec)</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Organic content (TikTok &amp; Reels)</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Product demos</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Testimonials</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Talking heads</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Aesthetic product visuals</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Script reads / voiceovers</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Product / UGC photography</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Additional hooks + CTAs</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Raw footage</div>
+          </div>
+        </div>
+
+        <!-- Feature packages -->
+        <div style="display:flex; flex-direction:column; gap:var(--space-4);">
+          <div class="card" style="padding:var(--space-6); gap:var(--space-2); background:var(--color-accent-2-200);">
+            <div class="card-kicker" style="color:var(--color-accent-2-700);">Ongoing</div>
+            <div class="card-title" style="font-size:20px;">Monthly retainers</div>
+            <p class="card-body" style="opacity:0.9;">10–15&nbsp; videos per month (a steady stream of fresh, on-brand content your team can post and run as ads.)</p>
+            <span class="tag tag-accent-2" style="align-self:flex-start;">Best value</span>
+          </div>
+          <div class="card" style="padding:var(--space-6); gap:var(--space-2);">
+            <div class="card-kicker">Strategy</div>
+            <div class="card-title" style="font-size:20px;">Script writing + concept ideation</div>
+            <p class="card-body" style="opacity:0.9;">Creative strategy, hooks and scripts built around your product and audience so every video has a reason to stop the scroll.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:var(--space-6);">
+        <a class="btn btn-primary" href="#contact" style="text-decoration:none; padding:14px 26px; font-size:15px;">Request the rate card
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="work" style="background:var(--color-bg); scroll-margin-top:80px;">
+    <div style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6);">
+      <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:var(--space-3); margin-bottom:var(--space-6);">
+        <div>
+          <h6 style="color:var(--color-accent);">Portfolio</h6>
+          <h2 style="font-size:clamp(30px,3.6vw,44px); max-width:16ch; margin-top:var(--space-2);">A few pieces I'm proud of.</h2>
+        </div>
+        
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-4);">
+        <sc-for list="{{ samples }}" as="sample" hint-placeholder-count="6">
+          <figure style="margin:0; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); background:var(--color-surface);">
+            <div style="position:relative; width:100%; aspect-ratio:9/16;">
+              <x-import component-from-global-scope="video-slot" id="{{ sample.slotId }}" placeholder="Drop your MP4" style="width:100%; height:100%;" hint-size="100%,100%"></x-import>
+              <div style="position:absolute; top:12px; left:12px; pointer-events:none; z-index:2;">
+                <span class="tag tag-neutral" style="background:color-mix(in srgb, var(--color-bg) 90%, transparent);">{{ sample.niche }}</span>
+              </div>
+            </div>
+            <figcaption style="padding:var(--space-3) var(--space-4) var(--space-4);">
+              <div style="font-family:var(--font-heading); font-size:18px; line-height:1.15;">{{ sample.title }}</div>
+              <div class="text-muted" style="font-size:12px; margin-top:3px;">{{ sample.format }}</div>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section id="brands" style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6); scroll-margin-top:80px;">
+    <div style="text-align:center; margin-bottom:var(--space-6);">
+      <h6 style="color:var(--color-accent);">Trusted by</h6>
+      <h2 style="font-size:clamp(28px,3.4vw,40px); margin-top:var(--space-2);">Brands I've created for</h2>
+      <p class="text-muted" style="max-width:48ch; margin:var(--space-2) auto 0; font-size:15px;">Drop each brand's logo into its tile below.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--space-3);">
+      <sc-for list="{{ brands }}" as="brand" hint-placeholder-count="8">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:var(--space-2); padding:var(--space-4) var(--space-3) var(--space-3); border-radius:var(--radius-lg); background:var(--color-surface);">
+          <div style="width:100%; height:78px;">
+            <x-import component-from-global-scope="logo-slot" id="{{ brand.slotId }}" placeholder="{{ brand.name }}" style="width:100%; height:100%;" hint-size="100%,100%"></x-import>
+          </div>
+          <span class="text-muted" style="font-size:12px; text-align:center; letter-spacing:0.01em;">{{ brand.name }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--color-accent-2-200); scroll-margin-top:80px;">
+    <div style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6);">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-8); align-items:start;">
+        <div>
+          <h6 style="color:var(--color-accent-2-700);">Let's collaborate</h6>
+          <h2 style="font-size:clamp(32px,4vw,52px); max-width:14ch; margin-top:var(--space-2);">Have a product you want people to love?</h2>
+          <p style="font-size:18px; margin-top:var(--space-4); max-width:44ch; color:color-mix(in srgb, var(--color-text) 82%, transparent);">
+            Tell me about your brand and I'll send my rate card, packages and availability within a day.
+          </p>
+          <div style="display:flex; flex-direction:column; gap:var(--space-3); margin-top:var(--space-6); font-size:16px;">
+            <a href="mailto:contentbyhayah@gmail.com" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--color-text);">
+              <span style="display:grid; place-items:center; width:42px; height:42px; border-radius:50%; background:var(--color-bg); flex:none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              </span>
+              contentbyhayah@gmail.com
+            </a>
+            <div style="display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-1);">
+              <a href="https://www.tiktok.com/@contentbyhayah" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:var(--color-text); background:var(--color-bg); border-radius:999px; padding:9px 16px 9px 10px;">
+                <span style="display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--color-accent); color:var(--color-bg); flex:none;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                </span>
+                <span style="font-size:14px;">TikTok <span class="text-muted">@contentbyhayah</span></span>
+              </a>
+              <a href="https://www.instagram.com/contentbyhayah" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:var(--color-text); background:var(--color-bg); border-radius:999px; padding:9px 16px 9px 10px;">
+                <span style="display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--color-accent); color:var(--color-bg); flex:none;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </span>
+                <span style="font-size:14px;">Instagram <span class="text-muted">@contentbyhayah</span></span>
+              </a>
+              <a href="https://www.youtube.com/@contentbyhayah" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:var(--color-text); background:var(--color-bg); border-radius:999px; padding:9px 16px 9px 10px;">
+                <span style="display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--color-accent); color:var(--color-bg); flex:none;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+                </span>
+                <span style="font-size:14px;">YouTube <span class="text-muted">@contentbyhayah</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <form onSubmit="{{ onSubmit }}" style="background:var(--color-bg); border-radius:calc(var(--radius-lg) * 1.15); padding:var(--space-6); box-shadow:var(--shadow-md); display:flex; flex-direction:column; gap:var(--space-3);">
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--space-3); padding:var(--space-6) 0;">
+              <span style="display:grid; place-items:center; width:64px; height:64px; border-radius:50%; background:var(--color-accent-2-200);">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </span>
+              <h3 style="margin:0;">Thank you!</h3>
+              <p class="text-muted" style="margin:0;">Your message is on its way. I'll reply within 24 hours.</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+            <h3 style="margin:0 0 var(--space-1);">Start a project</h3>
+            <div class="field">
+              <label>Your name</label>
+              <input class="input" type="text" placeholder="Jane Doe">
+            </div>
+            <div class="field">
+              <label>Brand / company</label>
+              <input class="input" type="text" placeholder="Acme Skincare">
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input class="input" type="email" placeholder="jane@acme.com">
+            </div>
+            <div class="field">
+              <label>Tell me about your project</label>
+              <textarea class="input" placeholder="What are we making, and when do you need it?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" style="padding:14px; font-size:15px;">Send inquiry</button>
+          </sc-if>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="max-width:1180px; margin:0 auto; padding:var(--space-6); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-3);">
+    <span class="nav-brand" style="display:flex; align-items:center; gap:10px;">
+      <span style="display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--color-accent); color:var(--color-bg); font-size:14px;">h</span>
+      contentbyhayah
+    </span>
+    <span class="text-muted" style="font-size:13px;">© 2026 Imam Shukurat · UGC Creator · Made with warmth</span>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    const samples = [
+      { slotId: "work-1", title: "Glow serum, 7-day test", niche: "Beauty", format: "Talking-head review · Reel" },
+      { slotId: "work-2", title: "Smart lamp unboxing", niche: "Tech", format: "First impressions · TikTok" },
+      { slotId: "work-3", title: "Morning shelf refresh", niche: "Lifestyle", format: "Lifestyle flatlay · Photo set" },
+      { slotId: "work-4", title: "Cleanser demo, on camera", niche: "Beauty", format: "Demo + voiceover · Reel" },
+      { slotId: "work-5", title: "Desk setup, honestly", niche: "Tech", format: "Story-style review · TikTok" },
+      { slotId: "work-6", title: "Candle & cozy corner", niche: "Lifestyle", format: "Ambient B-roll · Reel" },
+    ];
+    const brands = [
+      { name: "Vaseline", slotId: "brand-1" },
+      { name: "Nineless Skincare", slotId: "brand-2" },
+      { name: "Face Facts", slotId: "brand-3" },
+      { name: "Chowdeck", slotId: "brand-4" },
+      { name: "Miala Beauty", slotId: "brand-5" },
+      { name: "Frankly Skincare", slotId: "brand-6" },
+      { name: "Sugboon Editor Skincare", slotId: "brand-7" },
+      { name: "Sebamed", slotId: "brand-8" },
+    ];
+    return {
+      samples,
+      brands,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+<template id="__bundler_thumbnail" data-bg-color="#f5ead8">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f5ead8"/>
+    <circle cx="600" cy="330" r="150" fill="#c67139"/>
+    <text x="600" y="392" font-family="Georgia, serif" font-size="180" fill="#f5ead8" text-anchor="middle">h</text>
+    <text x="600" y="560" font-family="Georgia, serif" font-size="64" fill="#201e1d" text-anchor="middle">contentbyhayah</text>
+    <text x="600" y="620" font-family="system-ui, sans-serif" font-size="30" fill="#7a8a5e" text-anchor="middle" letter-spacing="4">UGC CREATOR PORTFOLIO</text>
+  </svg>
+</template>
+</body>
+</html>
