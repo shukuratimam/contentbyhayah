@@ -228,8 +228,8 @@
     <div style="text-align:center; margin-bottom:var(--space-6);">
       <h2 style="font-size:clamp(40px,5vw,56px); margin-top:0; color:var(--color-accent); font-family:var(--font-heading);">Trusted by</h2>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--space-3);">
-      <sc-for list="{{ brands }}" as="brand" hint-placeholder-count="8">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:var(--space-3);">
+      <sc-for list="{{ brands }}" as="brand" hint-placeholder-count="5">
         <div style="display:flex; flex-direction:column; align-items:center; gap:var(--space-2); padding:var(--space-4) var(--space-3) var(--space-3); border-radius:var(--radius-lg); background:var(--color-surface);">
           <div style="width:100%; height:78px; display:flex; align-items:center; justify-content:center;">
             <img src="{{ brand.logo }}" alt="{{ brand.name }} logo" style="max-width:100%; max-height:100%; object-fit:contain;" loading="lazy" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=' + encodeURIComponent('{{ brand.name }}') + '&background=f5ead8&color=c67139&size=128&rounded=true';">
@@ -339,14 +339,11 @@ class Component extends DCLogic {
       { slotId: "work-6", title: "Vaseline — Love Language", format: "Brand collaboration · Reel", caption: "A heartwarming narrative campaign exploring love languages, beautifully integrated with Vaseline.", instagramUrl: "https://www.instagram.com/reel/DZcsNHxsLHF/", thumbnail: "assets/thumb6.jpg" },
     ];
     const brands = [
-      { name: "Vaseline", slotId: "brand-1", logo: "https://www.google.com/s2/favicons?domain=vaseline.com&sz=128" },
-      { name: "Nineless Skincare", slotId: "brand-2", logo: "https://www.google.com/s2/favicons?domain=nineless.com&sz=128" },
-      { name: "Face Facts", slotId: "brand-3", logo: "https://www.google.com/s2/favicons?domain=facefacts.me&sz=128" },
-      { name: "Chowdeck", slotId: "brand-4", logo: "https://www.google.com/s2/favicons?domain=chowdeck.com&sz=128" },
-      { name: "Miala Beauty", slotId: "brand-5", logo: "https://www.google.com/s2/favicons?domain=mialacosmetics.com&sz=128" },
-      { name: "Frankly Skincare", slotId: "brand-6", logo: "https://www.google.com/s2/favicons?domain=frankly.co.kr&sz=128" },
-      { name: "Sugboon Editor Skincare", slotId: "brand-7", logo: "https://ui-avatars.com/api/?name=Sugboon+Editor+Skincare&background=f5ead8&color=c67139&size=128&rounded=true" },
-      { name: "Sebamed", slotId: "brand-8", logo: "https://www.google.com/s2/favicons?domain=sebamed.com&sz=128" },
+      { name: "Frankly", slotId: "brand-1", logo: "assets/brand-frankly.png" },
+      { name: "Nine Less", slotId: "brand-2", logo: "assets/brand-nineless.png" },
+      { name: "Face Facts", slotId: "brand-3", logo: "assets/brand-facefacts.png" },
+      { name: "Sebamed", slotId: "brand-4", logo: "assets/brand-sebamed.png" },
+      { name: "sbedt", slotId: "brand-5", logo: "assets/brand-sbedt.png" },
     ];
     return {
       samples,
