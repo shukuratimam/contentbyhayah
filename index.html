@@ -17,17 +17,57 @@
     <style>
       html { scroll-behavior: smooth; }
       @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+      /* ===== MOBILE RESPONSIVE ===== */
       @media (max-width: 800px) {
-        .responsive-split { grid-template-columns: 1fr !important; gap: var(--space-6) !important; text-align: center; }
-        .responsive-split .btn-group, .responsive-split .stats-group { justify-content: center; }
-        .responsive-split h1, .responsive-split h2, .responsive-split p { margin-inline: auto !important; }
-        .responsive-split.image-right > div:first-child { order: 2; margin-top: var(--space-4); }
-        .responsive-split.image-right > div:last-child { order: 1; }
-        .responsive-split.image-left > div:first-child { order: 1; }
-        .responsive-split.image-left > div:last-child { order: 2; margin-top: var(--space-4); }
-        .responsive-split .washed { margin: 0 auto; max-width: 320px; }
-        #contact .responsive-split { text-align: left; }
-        #contact .responsive-split h2, #contact .responsive-split p { margin-inline: 0 !important; }
+        /* Nav: horizontal scroll, hide overflow */
+        .nav { flex-wrap: nowrap !important; overflow-x: auto; gap: 12px !important; padding-block: 10px !important; }
+        .nav a:not(.nav-brand):not(.btn) { font-size: 13px; white-space: nowrap; }
+        .nav .btn { font-size: 12px !important; padding: 8px 14px !important; white-space: nowrap; }
+
+        /* Hero split */
+        .hero-grid { grid-template-columns: 1fr !important; text-align: center; }
+        .hero-grid > .hero-text { order: 2; }
+        .hero-grid > .hero-image { order: 1; }
+        .hero-grid h1 { font-size: clamp(32px, 8vw, 48px) !important; margin-inline: auto; }
+        .hero-grid p { margin-inline: auto; }
+        .btn-group { justify-content: center; }
+        .stats-group { justify-content: center; }
+        .hero-image { justify-self: center !important; }
+        .hero-image .washed { width: min(280px, 70vw) !important; }
+
+        /* Marquee / niches bar */
+        .niches-bar { flex-direction: column; align-items: flex-start !important; gap: 8px !important; }
+        .niches-bar .text-muted:last-child { margin-left: 0 !important; font-size: 12px; }
+
+        /* About split */
+        .about-grid { grid-template-columns: 1fr !important; text-align: center; }
+        .about-grid > div:first-child { order: 1; }
+        .about-grid > div:last-child { order: 2; }
+        .about-grid .washed { max-width: 300px; margin: 0 auto; }
+        .about-grid h2, .about-grid p { margin-inline: auto; }
+        .about-cards { grid-template-columns: 1fr !important; }
+
+        /* Services */
+        .services-grid { grid-template-columns: 1fr !important; }
+        .deliverables-inner { grid-template-columns: 1fr !important; }
+
+        /* Portfolio */
+        .portfolio-grid { grid-template-columns: 1fr 1fr !important; }
+
+        /* Brands */
+        .brands-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+        /* Contact */
+        .contact-grid { grid-template-columns: 1fr !important; }
+
+        /* Footer */
+        .site-footer { flex-direction: column; text-align: center; }
+      }
+
+      @media (max-width: 480px) {
+        .portfolio-grid { grid-template-columns: 1fr !important; }
+        .brands-grid { grid-template-columns: repeat(2, 1fr) !important; }
       }
     </style>
 </helmet>
@@ -51,8 +91,8 @@
 
   <!-- HERO -->
   <section id="top" style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6) var(--space-6); scroll-margin-top:80px;">
-    <div class="responsive-split image-right" style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:var(--space-8); align-items:center;">
-      <div>
+    <div class="hero-grid" style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:var(--space-8); align-items:center;">
+      <div class="hero-text">
         <h1 style="font-size:clamp(40px, 5.2vw, 68px); line-height:1.04; margin-top:0; max-width:14ch;">
           Turning everyday moments into creative content.
         </h1>
@@ -65,7 +105,7 @@
         </div>
         <div class="stats-group" style="display:flex; flex-wrap:wrap; gap:var(--space-6); margin-top:var(--space-8);">
           <div>
-            <div style="font-family:var(--font-heading); font-size:34px; color:var(--color-accent);">1+ yrs</div>
+            <div style="font-family:var(--font-heading); font-size:34px; color:var(--color-accent);">4+ yrs</div>
             <div class="text-muted" style="font-size:13px;">creating for brands</div>
           </div>
           <div>
@@ -79,7 +119,7 @@
         </div>
       </div>
 
-      <div style="position:relative; justify-self:center;">
+      <div class="hero-image" style="position:relative; justify-self:center;">
         <div style="position:absolute; inset:-18px; background:var(--color-accent-2-200); border-radius:62% 38% 46% 54% / 55% 48% 52% 45%; z-index:0;"></div>
         <div class="washed" style="position:relative; z-index:1; width:min(380px, 78vw); aspect-ratio:4/5; overflow:hidden; border-radius:58% 42% 52% 48% / 48% 55% 45% 52%; box-shadow:var(--shadow-lg);">
           <img src="assets/hero.jpg" alt="Imam Shukurat portrait" style="width:100%; height:100%; object-fit:cover;">
@@ -94,7 +134,7 @@
 
   <!-- MARQUEE / NICHES -->
   <section style="border-block:1px solid var(--color-divider); margin-top:var(--space-4);">
-    <div style="max-width:1180px; margin:0 auto; padding:var(--space-4) var(--space-6); display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-3); font-size:14px;">
+    <div class="niches-bar" style="max-width:1180px; margin:0 auto; padding:var(--space-4) var(--space-6); display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-3); font-size:14px;">
       <span class="text-muted" style="margin-right:var(--space-2);">I create for</span>
       <span class="tag tag-accent">Beauty &amp; Skincare</span>
       <span class="tag tag-accent-2">Tech &amp; Gadgets</span>
@@ -105,7 +145,7 @@
 
   <!-- ABOUT -->
   <section id="about" style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6); scroll-margin-top:80px;">
-    <div class="responsive-split image-left" style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:var(--space-8); align-items:center;">
+    <div class="about-grid" style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:var(--space-8); align-items:center;">
       <div style="position:relative;">
         <div class="washed" style="width:100%; aspect-ratio:1/1; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
           <img src="assets/about.png" alt="Imam Shukurat lifestyle" style="width:100%; height:100%; object-fit:cover;">
@@ -118,7 +158,7 @@
         <p style="font-size:17px; margin-top:var(--space-4); color:color-mix(in srgb, var(--color-text) 82%, transparent); max-width:56ch;">I'm Hayah, a UGC creator helping beauty, skincare, motherhood, lifestyle, and tech brands create authentic, high-quality content that builds trust and drives engagement.</p>
         <p style="font-size:17px; color:color-mix(in srgb, var(--color-text) 82%, transparent); max-width:56ch;">I blend cinematic visuals with natural storytelling to produce content that feels genuine, connects with audiences, and supports both organic and paid marketing goals. Every piece is created with intention, creativity, and your brand's unique voice in mind.</p>
 
-        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin-top:var(--space-6);">
+        <div class="about-cards" style="display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin-top:var(--space-6);">
           <div class="card" style="gap:6px;">
             <div class="card-kicker">What I make</div>
             <div class="card-title">Short-form video</div>
@@ -155,12 +195,12 @@
         <p class="text-muted" style="max-width:36ch; font-size:15px;">From a single hero video to a full monthly content engine — mix and match what you need.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:var(--space-4); align-items:start;">
+      <div class="services-grid" style="display:grid; grid-template-columns:1.5fr 1fr; gap:var(--space-4); align-items:start;">
 
         <!-- Deliverables -->
         <div class="card" style="padding:var(--space-6); gap:var(--space-4);">
           <div class="card-kicker">Content &amp; deliverables</div>
-          <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--space-2) var(--space-6);">
+          <div class="deliverables-inner" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--space-2) var(--space-6);">
             <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>UGC content</div>
             <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Paid media ads (15–60 sec)</div>
             <div style="display:flex; align-items:center; gap:10px; font-size:15px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);flex:none;"></span>Organic content (TikTok &amp; Reels)</div>
@@ -211,7 +251,7 @@
         
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-4);">
+      <div class="portfolio-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-4);">
         <sc-for list="{{ samples }}" as="sample" hint-placeholder-count="6">
           <figure style="margin:0; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); background:var(--color-surface); display:flex; flex-direction:column;">
             <!-- Thumbnail (static, non-editable) -->
@@ -240,7 +280,7 @@
     <div style="text-align:center; margin-bottom:var(--space-6);">
       <h2 style="font-size:clamp(40px,5vw,56px); margin-top:0; color:var(--color-accent); font-family:var(--font-heading);">Trusted by</h2>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:var(--space-3);">
+    <div class="brands-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--space-3);">
       <sc-for list="{{ brands }}" as="brand" hint-placeholder-count="8">
         <div style="display:flex; flex-direction:column; align-items:center; gap:var(--space-2); padding:var(--space-4) var(--space-3) var(--space-3); border-radius:var(--radius-lg); background:var(--color-surface);">
           <div style="width:100%; height:78px; display:flex; align-items:center; justify-content:center;">
@@ -255,7 +295,7 @@
   <!-- CONTACT -->
   <section id="contact" style="background:var(--color-accent-2-200); scroll-margin-top:80px;">
     <div style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6);">
-      <div class="responsive-split image-left" style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-8); align-items:start;">
+      <div class="contact-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-8); align-items:start;">
         <div>
           <h6 style="color:var(--color-accent-2-700);">Let's collaborate</h6>
           <h2 style="font-size:clamp(32px,4vw,52px); max-width:14ch; margin-top:var(--space-2);">Have a product you want people to love?</h2>
@@ -292,19 +332,12 @@
           </div>
         </div>
 
-        <form onSubmit="{{ onSubmit }}" style="background:var(--color-bg); border-radius:calc(var(--radius-lg) * 1.15); padding:var(--space-6); box-shadow:var(--shadow-md); display:flex; flex-direction:column; gap:var(--space-3);">
+        <form action="https://formsubmit.co/contentbyhayah@gmail.com" method="POST" style="background:var(--color-bg); border-radius:calc(var(--radius-lg) * 1.15); padding:var(--space-6); box-shadow:var(--shadow-md); display:flex; flex-direction:column; gap:var(--space-3);">
           <input type="hidden" name="_subject" value="New Inquiry from UGC Portfolio">
           <input type="hidden" name="_captcha" value="false">
-          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--space-3); padding:var(--space-6) 0;">
-              <span style="display:grid; place-items:center; width:64px; height:64px; border-radius:50%; background:var(--color-accent-2-200);">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-              </span>
-              <h3 style="margin:0;">Thank you!</h3>
-              <p class="text-muted" style="margin:0;">Your message is on its way. I'll reply within 24 hours.</p>
-            </div>
-          </sc-if>
-          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <input type="hidden" name="_next" value="https://contentbyhayah.netlify.app/#contact">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
             <h3 style="margin:0 0 var(--space-1);">Start a project</h3>
             <div class="field">
               <label>Your name</label>
@@ -323,14 +356,13 @@
               <textarea class="input" name="project" required placeholder="What are we making, and when do you need it?"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-block" style="padding:14px; font-size:15px;">Send inquiry</button>
-          </sc-if>
         </form>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer style="max-width:1180px; margin:0 auto; padding:var(--space-6); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-3);">
+  <footer class="site-footer" style="max-width:1180px; margin:0 auto; padding:var(--space-6); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-3);">
     <span class="nav-brand" style="display:flex; align-items:center; gap:10px;">
       <span style="display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--color-accent); color:var(--color-bg); font-size:14px;">h</span>
       contentbyhayah
@@ -342,7 +374,6 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { sent: false };
   renderVals() {
     const samples = [
       { slotId: "work-1", title: "Frankly PDRN Ball Serum", format: "Product review · Reel", caption: "A deep dive into the Frankly PDRN Ball Serum, highlighting its unique texture and glowing skin results.", instagramUrl: "https://www.instagram.com/reel/DbMHIdqsBGv/", thumbnail: "assets/thumb1.jpg" },
@@ -362,26 +393,7 @@ class Component extends DCLogic {
       { name: "Chowdeck", slotId: "brand-7", logo: "assets/brand-chowdeck.png" },
       { name: "Vaseline", slotId: "brand-8", logo: "assets/brand-vaseline.png" },
     ];
-    return {
-      samples,
-      brands,
-      sent: this.state.sent,
-      notSent: !this.state.sent,
-      onSubmit: async (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const btn = form.querySelector('button[type="submit"]');
-        if (btn) btn.innerText = 'Sending...';
-        try {
-          await fetch('https://formsubmit.co/ajax/contentbyhayah@gmail.com', {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
-        } catch(err) { console.error(err); }
-        this.setState({ sent: true });
-      },
-    };
+    return { samples, brands };
   }
 }
 </script>
