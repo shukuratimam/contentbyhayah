@@ -14,10 +14,22 @@
   <script src="./image-slot.js"></script>
   <script src="./video-slot.js"></script>
   <script src="./logo-slot.js"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-  </style>
+    <style>
+      html { scroll-behavior: smooth; }
+      @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+      @media (max-width: 800px) {
+        .responsive-split { grid-template-columns: 1fr !important; gap: var(--space-6) !important; text-align: center; }
+        .responsive-split .btn-group, .responsive-split .stats-group { justify-content: center; }
+        .responsive-split h1, .responsive-split h2, .responsive-split p { margin-inline: auto !important; }
+        .responsive-split.image-right > div:first-child { order: 2; margin-top: var(--space-4); }
+        .responsive-split.image-right > div:last-child { order: 1; }
+        .responsive-split.image-left > div:first-child { order: 1; }
+        .responsive-split.image-left > div:last-child { order: 2; margin-top: var(--space-4); }
+        .responsive-split .washed { margin: 0 auto; max-width: 320px; }
+        #contact .responsive-split { text-align: left; }
+        #contact .responsive-split h2, #contact .responsive-split p { margin-inline: 0 !important; }
+      }
+    </style>
 </helmet>
 
 <div style="min-height:100%; background:var(--color-bg); overflow-x:hidden;">
@@ -39,19 +51,19 @@
 
   <!-- HERO -->
   <section id="top" style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6) var(--space-6); scroll-margin-top:80px;">
-    <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:var(--space-8); align-items:center;">
+    <div class="responsive-split image-right" style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:var(--space-8); align-items:center;">
       <div>
         <h1 style="font-size:clamp(40px, 5.2vw, 68px); line-height:1.04; margin-top:0; max-width:14ch;">
           Turning everyday moments into creative content.
         </h1>
         <p style="font-size:19px; max-width:48ch; margin-top:var(--space-4); color:color-mix(in srgb, var(--color-text) 80%, transparent);">I'm a UGC creator who enjoys working with brands to tell compelling stories and connect with audiences. My process is fast, flexible, and insights-driven.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-6);">
+        <div class="btn-group" style="display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-6);">
           <a class="btn btn-primary" href="#contact" style="text-decoration:none; padding:14px 26px; font-size:15px;">Work with me
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
           </a>
           <a class="btn btn-secondary" href="#work" style="text-decoration:none; padding:14px 26px; font-size:15px;">See my work</a>
         </div>
-        <div style="display:flex; flex-wrap:wrap; gap:var(--space-6); margin-top:var(--space-8);">
+        <div class="stats-group" style="display:flex; flex-wrap:wrap; gap:var(--space-6); margin-top:var(--space-8);">
           <div>
             <div style="font-family:var(--font-heading); font-size:34px; color:var(--color-accent);">1+ yrs</div>
             <div class="text-muted" style="font-size:13px;">creating for brands</div>
@@ -93,7 +105,7 @@
 
   <!-- ABOUT -->
   <section id="about" style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6); scroll-margin-top:80px;">
-    <div style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:var(--space-8); align-items:center;">
+    <div class="responsive-split image-left" style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:var(--space-8); align-items:center;">
       <div style="position:relative;">
         <div class="washed" style="width:100%; aspect-ratio:1/1; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
           <img src="assets/about.png" alt="Imam Shukurat lifestyle" style="width:100%; height:100%; object-fit:cover;">
@@ -243,7 +255,7 @@
   <!-- CONTACT -->
   <section id="contact" style="background:var(--color-accent-2-200); scroll-margin-top:80px;">
     <div style="max-width:1180px; margin:0 auto; padding:var(--space-8) var(--space-6);">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-8); align-items:start;">
+      <div class="responsive-split image-left" style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-8); align-items:start;">
         <div>
           <h6 style="color:var(--color-accent-2-700);">Let's collaborate</h6>
           <h2 style="font-size:clamp(32px,4vw,52px); max-width:14ch; margin-top:var(--space-2);">Have a product you want people to love?</h2>
@@ -281,6 +293,8 @@
         </div>
 
         <form onSubmit="{{ onSubmit }}" style="background:var(--color-bg); border-radius:calc(var(--radius-lg) * 1.15); padding:var(--space-6); box-shadow:var(--shadow-md); display:flex; flex-direction:column; gap:var(--space-3);">
+          <input type="hidden" name="_subject" value="New Inquiry from UGC Portfolio">
+          <input type="hidden" name="_captcha" value="false">
           <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--space-3); padding:var(--space-6) 0;">
               <span style="display:grid; place-items:center; width:64px; height:64px; border-radius:50%; background:var(--color-accent-2-200);">
@@ -294,19 +308,19 @@
             <h3 style="margin:0 0 var(--space-1);">Start a project</h3>
             <div class="field">
               <label>Your name</label>
-              <input class="input" type="text" placeholder="Jane Doe">
+              <input class="input" type="text" name="name" required placeholder="Jane Doe">
             </div>
             <div class="field">
               <label>Brand / company</label>
-              <input class="input" type="text" placeholder="Acme Skincare">
+              <input class="input" type="text" name="company" placeholder="Acme Skincare">
             </div>
             <div class="field">
               <label>Email</label>
-              <input class="input" type="email" placeholder="jane@acme.com">
+              <input class="input" type="email" name="email" required placeholder="jane@acme.com">
             </div>
             <div class="field">
               <label>Tell me about your project</label>
-              <textarea class="input" placeholder="What are we making, and when do you need it?"></textarea>
+              <textarea class="input" name="project" required placeholder="What are we making, and when do you need it?"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-block" style="padding:14px; font-size:15px;">Send inquiry</button>
           </sc-if>
@@ -353,7 +367,20 @@ class Component extends DCLogic {
       brands,
       sent: this.state.sent,
       notSent: !this.state.sent,
-      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      onSubmit: async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.innerText = 'Sending...';
+        try {
+          await fetch('https://formsubmit.co/ajax/contentbyhayah@gmail.com', {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+        } catch(err) { console.error(err); }
+        this.setState({ sent: true });
+      },
     };
   }
 }
